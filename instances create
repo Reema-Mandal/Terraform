@@ -1,0 +1,16 @@
+This has to be pasted after vim command
+********************************************************************
+provider "aws" {
+  region     = "us-east-1"
+  access_key = "paste the created key"
+  secret_key = "8avLzHFz78+wa0WpFYZW0rIdEzsHHEkHeVsjyjUr"
+}
+
+resource "aws_instance" "my-server" {
+  ami           = "ami-00ca32bbc84273381"
+  instance_type = "t2.micro"
+  tags = {
+    Name = "india-server"
+  }
+}
+*******************************************************************
