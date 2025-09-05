@@ -8,7 +8,7 @@ pull image command for that copy image from docker hub [ubuntu and httpd]
 docker pull ubuntu:questing-20250830
 docker pull httpd:trixie
 docker run -it --name devops ubuntu:questing-20250830 /bin/bash
-inside container..........
+inside container..........we have to run the commands
 apt update -y
 apt install apache2 -y
 cd /var/www/html/
