@@ -1,3 +1,39 @@
+create iam role and attach policy
+ amazon Elastic container registry full access,Amazon EKS cluster policy and IAM full access
+ apt-get update -y
+ apt install unzip -y
+ curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+ unzip awscliv2.zip
+ sudo ./aws/install
+ aws configure
+ I
+ curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+ sudo mv /tmp/eksctl /usr/local/bin
+ eksctl version
+ 
+ curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+ sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl 
+ kubectl version --client
+ ssh-keygen
+from vpc --- take subnets of two different region
+ eksctl create cluster --name my-cluster --region region-code --version 1.32 --vpc-public-subnets subnet-ExampleID1,subnet-ExampleID2 --without-nodegroup
+##############################################################################################################################
+ ##Create a Node Group##
+##############################################################################################################################
+ eksctl create nodegroup \
+  --cluster my-cluster \
+  --region us-east-2 \
+  --name my-node-group \
+  --node-ami-family Ubuntu2204 \
+  --node-type t2.small \
+  --subnet-ids subnet-086ced1a84c94a342,subnet-01695faa5e0e61d97 \
+  --nodes 3 \
+  --nodes-min 2 \
+  --nodes-max 4 \
+  --ssh-access \
+  --ssh-public-key /root/.ssh/id_rsa.pub
+
+vim deployment.yml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -19,3 +55,13 @@ spec:
         image: nginx:1.14.2
         ports:
         - containerPort: 80
+kubectl apply -f deployment.yml
+kubectl get pods
+kubectl get deployment
+kubectl expose deployment nginx-deployment --port=80 --target-port=80 --type=LoadBalancer
+kubectl get svc
+
+ copy the amazon aws code add port 80 and paste in browser
+
+
+
