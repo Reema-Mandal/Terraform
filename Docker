@@ -1,4 +1,4 @@
-1st ter
+1st terminal
 ###################################################
 yum install docker -y
 systemctl start docker 
@@ -15,7 +15,7 @@ cd /var/www/html/
 echo "i am sarbojit" > index.html
 service apache2 start
  
-2nd term
+2nd terminal
 #################################################
 docker ps -a
 docker inspect devops | less
