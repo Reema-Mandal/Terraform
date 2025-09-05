@@ -7,7 +7,7 @@ ping each other
  
 on the control node and the workers:
 
-vim /etc/ssh/sshd_config
+vim /etc/ssh/sshd_config ( permit root login and password authentication -- yes)
 
 systemctl start sshd
 
