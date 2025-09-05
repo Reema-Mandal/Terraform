@@ -1,4 +1,5 @@
 Create three instances
+Allow icmp v4 in inbound rules
 
 connect them in the terminal
 
