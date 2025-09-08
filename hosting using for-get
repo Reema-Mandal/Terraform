@@ -1,0 +1,54 @@
+ yum install docker* -y
+    2  yum install git -y
+    3  hostnamectl set-hostname docker.example.com
+    4  bash
+    5  mkdir /lti
+    6  cd /lti
+    7  git init
+    8  git clone git@github.com:Reema-Mandal/project.git
+    9  git status
+   10  cd
+   11  yum install maven
+   12  git clone https://github.com/Reema-Mandal/project.git
+   13  ll
+   14  mkdir /reema
+   15  cd /reema
+   16  git clone https://github.com/Reema-Mandal/project.git
+   17  ll
+   18  cd
+   19  cd reema
+   20  cd /reema
+   21  cd project
+   22  ll
+   23  cd webapp
+   24  mvn clean package
+   25  cd
+   26  cd
+   27  ll
+   28  cd project
+   29  ll
+   30  cd
+   31  aws configure
+   32  cd maven
+   33  cd project
+   34  aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 966753295778.dkr.ecr.us-east-1.amazonaws.com
+   35  docker build -t reemas_repo .
+   36  cd
+   37  yum install java* -y
+   38  cd reema
+   39  cd /reema
+   40  aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 966753295778.dkr.ecr.us-east-1.amazonaws.com
+   41  docker build -t reemas_repo .
+   42  cd
+   43  systemctl status docker
+   44  systemctl start docker
+   45  systemctl enable docker
+   46  systemctl status docker
+   47  cd /reema
+   48  cd maven
+   49  cd /maven
+   50  cd project
+   51  aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 966753295778.dkr.ecr.us-east-1.amazonaws.com
+   52  docker build -t reemas_repo .
+   53  docker tag reemas_repo:latest 966753295778.dkr.ecr.us-east-1.amazonaws.com/reemas_repo:latest
+   54  docker push 966753295778.dkr.ecr.us-east-1.amazonaws.com/reemas_repo:latest
